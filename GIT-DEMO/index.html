@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>TrustPass Secure KYC Vault</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+    background: linear-gradient(135deg,#141e30,#243b55);
+    color:white;
+    font-family:Segoe UI;
+}
+.glass{
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:25px;
+}
+.section-title{
+    color:#00e0ff;
+    font-weight:600;
+    margin-bottom:15px;
+}
+.btn-premium{
+    background:#00e0ff;
+    border:none;
+    font-weight:600;
+}
+.btn-premium:hover{
+    background:#00bcd4;
+}
+.small-text{
+    font-size:13px;
+}
+.progress{
+    height:22px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container py-5">
+<h2 class="text-center mb-4">🔐 TrustPass – Complete Digital KYC Vault</h2>
+
+<!-- 🔵 PROGRESS BAR -->
+<div class="glass">
+<div class="section-title">📊 KYC Completion</div>
+<div class="progress">
+<div id="progressBar" class="progress-bar bg-info" style="width:0%">0%</div>
+</div>
+</div>
+
+<!-- MASTER CONSENT -->
+<div class="glass">
+<div class="section-title">🔐 Master Consent</div>
+<div class="form-check">
+<input class="form-check-input" type="checkbox" id="masterConsent">
+<label class="form-check-label">
+I agree to securely store my encrypted KYC data.
+</label>
+</div>
+</div>
+
+<!-- PERSONAL DETAILS -->
+<div class="glass">
+<div class="section-title">🧾 Personal Details</div>
+
+<input id="fullName" class="form-control mb-1" placeholder="Full Name">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_fullName" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<input id="dob" type="date" class="form-control mb-1">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_dob" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<select id="gender" class="form-select mb-1">
+<option value="">Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+<option>Other</option>
+</select>
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_gender" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<input id="parentName" class="form-control mb-1" placeholder="Parent Name">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_parentName" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+</div>
+
+<!-- ADDRESS DETAILS -->
+<div class="glass">
+<div class="section-title">🏠 Address Details</div>
+
+<textarea id="currentAddress" class="form-control mb-1" placeholder="Current Address"></textarea>
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_currentAddress" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<textarea id="permanentAddress" class="form-control mb-1" placeholder="Permanent Address"></textarea>
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_permanentAddress" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<input id="city" class="form-control mb-1" placeholder="City">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_city" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<input id="state" class="form-control mb-1" placeholder="State">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_state" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<input id="pincode" class="form-control mb-1" placeholder="PIN Code">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_pincode" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<input id="country" class="form-control mb-1" placeholder="Country">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_country" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+</div>
+
+<!-- CONTACT DETAILS -->
+<div class="glass">
+<div class="section-title">📞 Contact Details</div>
+
+<input id="mobile" class="form-control mb-1" placeholder="Mobile">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_mobile" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<input id="email" type="email" class="form-control mb-1" placeholder="Email">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_email" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+</div>
+
+<!-- IDENTITY -->
+<div class="glass">
+<div class="section-title">🆔 Identity Proof</div>
+
+<input id="idType" class="form-control mb-1" placeholder="Document Type">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_idType" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<input id="idNumber" class="form-control mb-1" placeholder="Document Number">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_idNumber" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+</div>
+
+<!-- OCCUPATION -->
+<div class="glass">
+<div class="section-title">💼 Occupation Details</div>
+
+<input id="occupation" class="form-control mb-1" placeholder="Occupation">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_occupation" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<input id="companyName" class="form-control mb-1" placeholder="Company Name">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_companyName" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+<input id="incomeRange" class="form-control mb-1" placeholder="Income Range">
+<div class="form-check mb-2">
+<input class="form-check-input consent-check" type="checkbox" id="consent_incomeRange" checked>
+<label class="form-check-label small-text">Allow Auto-fill</label>
+</div>
+
+</div>
+
+<div class="text-center">
+<button class="btn btn-premium px-5 py-2" onclick="saveData()">Save Securely</button>
+</div>
+
+</div>
+
+<script>
+
+/* 🔵 PROGRESS CALCULATION */
+function updateProgress(){
+
+let filled = 0;
+let total = 0;
+
+document.querySelectorAll("input, select, textarea").forEach(el=>{
+if(el.type !== "checkbox"){   // ignore consent + master checkbox
+total++;
+if(el.value.trim() !== "") filled++;
+}
+});
+
+let percent = Math.round((filled/total)*100);
+let bar = document.getElementById("progressBar");
+bar.style.width = percent + "%";
+bar.innerText = percent + "%";
+}
+
+/* Live Update */
+document.querySelectorAll("input, select, textarea")
+.forEach(el=>el.addEventListener("input", updateProgress));
+
+/* ENCRYPTION */
+function encrypt(data){ return btoa(JSON.stringify(data)); }
+function decrypt(data){ return JSON.parse(atob(data)); }
+
+/* SAVE */
+function saveData(){
+
+if(!masterConsent.checked){
+alert("Please accept master consent before saving.");
+return;
+}
+
+const kycData = {};
+const consentData = {};
+
+document.querySelectorAll("input, select, textarea").forEach(el=>{
+if(el.id && !el.id.startsWith("consent_") && el.type !== "checkbox"){
+kycData[el.id] = el.value;
+}
+});
+
+document.querySelectorAll(".consent-check").forEach(c=>{
+consentData[c.id] = c.checked;
+});
+
+localStorage.setItem("secureVault", encrypt({
+data: kycData,
+consent: consentData
+}));
+
+alert("KYC Data Encrypted & Saved Successfully 🔐");
+}
+
+/* AUTO LOAD */
+window.onload = function(){
+
+const saved = localStorage.getItem("secureVault");
+
+if(saved){
+
+const vault = decrypt(saved);
+const data = vault.data;
+const consent = vault.consent;
+
+for(let key in data){
+
+if(consent["consent_"+key]){
+document.getElementById(key).value = data[key];
+}
+
+document.getElementById("consent_"+key).checked = consent["consent_"+key];
+}
+
+updateProgress();
+}
+}
+
+updateProgress();
+
+</script>
+
+</body>
+</html>

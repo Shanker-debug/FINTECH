@@ -44,7 +44,6 @@ body{
 <body>
 
 <script>
-// 🔐 PAGE PROTECTION (MUST be inside script)
 if (localStorage.getItem("isLoggedIn") !== "true") {
     alert("Please login first!");
     window.location.href = "login.html";
@@ -102,22 +101,30 @@ I agree to securely store my encrypted personal data.
 <div id="educationFields"></div>
 </div>
 
-<div class="text-center">
-<button class="btn btn-premium px-5 py-2" onclick="saveData()">Save Securely</button>
-<button class="btn btn-outline-light mt-3" onclick="clearVault()">Clear Vault</button>
+<!-- BUTTON SECTION (FIXED LAYOUT) -->
+<div class="text-center mt-4">
+<div class="d-flex justify-content-center gap-3 flex-wrap">
+
+<button class="btn btn-premium px-4 py-2" onclick="saveData()">
+Save Securely
+</button>
+
+<button class="btn btn-outline-light px-4" onclick="goHome()">
+🏠 Home
+</button>
+
+<button class="btn btn-outline-danger px-4" onclick="clearVault()">
+Clear Vault
+</button>
+
+</div>
 </div>
 
 </div>
 
 <script>
 
-// 🔐 PAGE PROTECTION AGAIN (SAFE CHECK)
-if (localStorage.getItem("isLoggedIn") !== "true") {
-    alert("Please login first!");
-    window.location.href = "login.html";
-}
-
-/* ---------- FIELD CONFIGURATION ---------- */
+/* ---------- FIELD CONFIG ---------- */
 
 const fields = {
 personal: [
@@ -164,7 +171,7 @@ education: [
 ]
 };
 
-/* ---------- DYNAMIC FIELD GENERATOR ---------- */
+/* ---------- GENERATE FIELDS ---------- */
 
 function generateFields(section, containerId){
 const container=document.getElementById(containerId);
@@ -212,7 +219,7 @@ total++;
 if(el.value.trim()!=="") filled++;
 }
 });
-let percent=Math.round((filled/total)*100);
+let percent = total === 0 ? 0 : Math.round((filled/total)*100);
 let bar=document.getElementById("progressBar");
 bar.style.width=percent+"%";
 bar.innerText=percent+"%";
@@ -228,7 +235,8 @@ function decrypt(data){ return JSON.parse(atob(data)); }
 /* ---------- SAVE ---------- */
 
 function saveData(){
-if(!masterConsent.checked){
+
+if(!document.getElementById("masterConsent").checked){
 alert("Please accept consent first.");
 return;
 }
@@ -246,7 +254,11 @@ consent[c.id]=c.checked;
 });
 
 localStorage.setItem("secureVault",encrypt({data,consent}));
+
 alert("Data Encrypted & Saved 🔐");
+
+// Redirect properly
+window.location.href="index.html";
 }
 
 /* ---------- LOAD ---------- */
@@ -260,7 +272,8 @@ let consent=vault.consent;
 
 for(let key in data){
 if(consent["consent_"+key]){
-document.getElementById(key).value=data[key];
+let element = document.getElementById(key);
+if(element) element.value=data[key];
 }
 if(document.getElementById("consent_"+key)){
 document.getElementById("consent_"+key).checked=consent["consent_"+key];
@@ -276,6 +289,12 @@ function clearVault(){
 localStorage.removeItem("secureVault");
 alert("Vault Cleared");
 location.reload();
+}
+
+/* ---------- HOME ---------- */
+
+function goHome(){
+window.location.href="index.html";
 }
 
 updateProgress();

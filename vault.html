@@ -43,11 +43,18 @@ body{
 
 <body>
 
+<script>
+// 🔐 PAGE PROTECTION (MUST be inside script)
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    alert("Please login first!");
+    window.location.href = "login.html";
+}
+</script>
+
 <div class="container py-5">
 
 <h2 class="text-center mb-4">🔐 TrustPass – Universal Digital Vault</h2>
 
-<!-- PROGRESS -->
 <div class="glass">
 <div class="section-title">📊 Profile Completion</div>
 <div class="progress">
@@ -55,7 +62,6 @@ body{
 </div>
 </div>
 
-<!-- MASTER CONSENT -->
 <div class="glass">
 <div class="section-title">🔐 Master Consent</div>
 <div class="form-check">
@@ -66,39 +72,31 @@ I agree to securely store my encrypted personal data.
 </div>
 </div>
 
-<!-- PERSONAL DETAILS -->
 <div class="glass">
 <div class="section-title">🧾 Personal Details</div>
-
 <div id="personalFields"></div>
-
 </div>
 
-<!-- ADDRESS -->
 <div class="glass">
 <div class="section-title">🏠 Address Details</div>
 <div id="addressFields"></div>
 </div>
 
-<!-- CONTACT -->
 <div class="glass">
 <div class="section-title">📞 Contact Details</div>
 <div id="contactFields"></div>
 </div>
 
-<!-- IDENTITY -->
 <div class="glass">
 <div class="section-title">🆔 Identity Details</div>
 <div id="identityFields"></div>
 </div>
 
-<!-- OCCUPATION -->
 <div class="glass">
 <div class="section-title">💼 Occupation Details</div>
 <div id="occupationFields"></div>
 </div>
 
-<!-- EDUCATION -->
 <div class="glass">
 <div class="section-title">🎓 Academic Details</div>
 <div id="educationFields"></div>
@@ -113,10 +111,15 @@ I agree to securely store my encrypted personal data.
 
 <script>
 
+// 🔐 PAGE PROTECTION AGAIN (SAFE CHECK)
+if (localStorage.getItem("isLoggedIn") !== "true") {
+    alert("Please login first!");
+    window.location.href = "login.html";
+}
+
 /* ---------- FIELD CONFIGURATION ---------- */
 
 const fields = {
-
 personal: [
 ["fullName","Full Name"],
 ["dob","Date of Birth","date"],
@@ -125,7 +128,6 @@ personal: [
 ["maritalStatus","Marital Status","select",["Single","Married","Divorced","Widowed"]],
 ["nationality","Nationality"]
 ],
-
 address: [
 ["currentAddress","Current Address","textarea"],
 ["permanentAddress","Permanent Address","textarea"],
@@ -134,23 +136,19 @@ address: [
 ["pincode","PIN Code"],
 ["country","Country"]
 ],
-
 contact: [
 ["mobile","Mobile Number"],
 ["email","Email","email"]
 ],
-
 identity: [
 ["aadhaarNumber","Aadhaar Number"],
 ["panNumber","PAN Number"]
 ],
-
 occupation: [
 ["occupation","Occupation","select",["Student","Salaried","Self-employed","Business","Other"]],
 ["companyName","Company Name"],
 ["incomeRange","Annual Income","select",["Below 2 Lakhs","2-5 Lakhs","5-10 Lakhs","10-25 Lakhs","Above 25 Lakhs"]]
 ],
-
 education: [
 ["tenthBoard","10th Board"],
 ["tenthMarks","10th Percentage"],
@@ -164,7 +162,6 @@ education: [
 ["category","Category","select",["General","OBC","SC","ST","EWS"]],
 ["disability","Disability","select",["No","Yes"]]
 ]
-
 };
 
 /* ---------- DYNAMIC FIELD GENERATOR ---------- */

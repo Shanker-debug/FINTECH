@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TRUSTID | Secure Digital Identity Platform</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-dark: #0b2c4a;
+        --primary-blue: #114e82;
+        --accent-blue: #1f75fe;
+        --light-blue: #3fa9f5;
+        --white: #ffffff;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary-blue)
+        );
+        color: white;
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        padding: 20px 40px;
+      }
+      .logo {
+        width: 50px;
+      }
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 1px;
+      }
+
+      .hero {
+        padding: 120px 20px;
+        text-align: center;
+      }
+
+      .hero-card {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(15px);
+        padding: 60px;
+        border-radius: 30px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        display: inline-block;
+      }
+
+      .hero h1 {
+        font-size: 50px;
+        font-weight: 700;
+      }
+      .hero span {
+        color: var(--light-blue);
+      }
+
+      .hero p {
+        font-size: 18px;
+        margin-top: 20px;
+        opacity: 0.9;
+      }
+
+      .btn-primary {
+        background: var(--accent-blue);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .btn-primary:hover {
+        background: var(--light-blue);
+        transform: translateY(-2px);
+      }
+
+      .btn-outline-light {
+        border-radius: 30px;
+        padding: 12px 30px;
+      }
+
+      .features {
+        background: white;
+        color: var(--primary-dark);
+        padding: 100px 0;
+        border-radius: 60px 60px 0 0;
+        margin-top: 100px;
+      }
+
+      .feature-card {
+        padding: 40px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+        background: white;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      }
+
+      .feature-icon {
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+
+      footer {
+        background: #081f33;
+        padding: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #ccc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <div class="d-flex align-items-center">
+          <img src="logo.jpeg" class="logo me-2" />
+          <span class="navbar-brand text-white">TRUSTID</span>
+        </div>
+        <div>
+          <!-- ✅ FIXED: Login button -->
+          <div>
+            <a href="signup.html" class="btn btn-light me-2">Sign Up</a>
+            <a href="login.html" class="btn btn-outline-light">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-card">
+        <h1>Secure Digital Identity <br /><span>Built for the Future</span></h1>
+        <p>
+          Store once. Share securely. Auto-fill instantly with full consent
+          control.
+        </p>
+
+        <div class="mt-4">
+          <a href="vault.html" class="btn btn-primary m-2">Create Your Vault</a>
+          <a href="audit.html" class="btn btn-dark m-2">View Audit Log</a>
+          <a href="/form.html" class="btn btn-outline-light m-2"
+            >Try Auto-Fill</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container text-center">
+        <h2 class="fw-bold mb-5">Why Choose TRUSTID?</h2>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-3">
+            <div class="feature-card">
+              <div class="feature-icon">🔐</div>
+              <h5>Encrypted Vault</h5>
+              <p>
+                Advanced encryption keeps your KYC data protected and
+                centralized.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <h5>1-Click Auto Fill</h5>
+              <p>
+                Complete financial forms instantly without repetitive typing.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="feature-card">
+              <div class="feature-icon">✅</div>
+              <h5>Consent Driven</h5>
+              <p>You control who accesses your data and for how long.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="feature-card">
+              <div class="feature-icon">📊</div>
+              <h5>Audit Transparency</h5>
+              <p>
+                Track every data access request with full time-stamped
+                visibility.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 TRUSTID | Secure Digital Identity Platform <br />
+      Built for Banks • Fintech • NBFC • Startups
+    </footer>
+
+    <!-- ✅ LOGIN PROTECTION -->
+    <!-- ✅ LOGIN PROTECTION (FIXED) -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginBtn = document.querySelector("a[href='login.html']");
+
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+          // Disable dashboard buttons if not logged in
+          document
+            .querySelectorAll(
+              "a[href='vault.html'], a[href='audit.html'], a[href='form.html']",
+            )
+            .forEach((btn) => {
+              btn.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = "login.html";
+              });
+            });
+        } else {
+          // Hide login button if logged in
+          if (loginBtn) loginBtn.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
